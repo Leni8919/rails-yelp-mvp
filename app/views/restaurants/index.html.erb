@@ -1,0 +1,16 @@
+
+<nav class="navbar navbar-light bg-light d-flex justify-content-start">
+  <%= link_to 'List a new restaurant', new_restaurant_path, class:"btn btn-primary mx-2" %>
+</nav>
+
+<div class="container mt-4">
+  <h1>Restaurants list</h1>
+  <table>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= link_to restaurant.name, restaurant_path(restaurant)  %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+

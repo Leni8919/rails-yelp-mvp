@@ -1,0 +1,32 @@
+<nav class="navbar navbar-light bg-light d-flex justify-content-start">
+  <%= link_to 'Back to restaurants list', restaurants_path, class:"btn btn-primary mx-2" %>
+  <%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class:"btn btn-primary mx-2" %>
+</nav>
+
+<div class="container mt-4">
+
+  <div class="restaurant_info">
+      <h2><%= @restaurant.name %></h2>
+    <ul>
+      <li>Category: <%= @restaurant.category %></li>
+      <% unless @restaurant.phone_number.nil? %>
+        <li>Phone number: <%= @restaurant.phone_number %></li>
+      <% end %>
+      <li>Address: <%= @restaurant.address %></li>
+    </ul>
+  </div>
+
+  <div class="restaurant_reviews">
+    <% unless @restaurant.reviews.nil? %>
+    <h2>Reviews</h2>
+      <ul>
+        <% @restaurant.reviews.each do |review| %>
+          <li><%= review.content %> - <%=  review.rating%></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+
+
+</div>

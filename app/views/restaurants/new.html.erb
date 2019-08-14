@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light bg-light d-flex justify-content-start">
+<%= link_to 'Back to restaurants list', restaurants_path, class:"btn btn-primary mx-2" %>
+</nav>
+
+<div class="container mt-4">
+  <div class="form col-6 offset-3">
+    <%= simple_form_for(@restaurant) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :phone_number %>
+      <%= f.input :category, collection: Restaurant::CATEGORIES  %>
+      <%= f.submit class:'btn btn-primary'%>
+    <% end %>
+  </div>
+
+
+</div>
